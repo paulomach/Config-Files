@@ -1,0 +1,31 @@
+#sys-auth/consolekit policykit
+app-admin/syslog-ng -ipv6
+app-text/poppler-bindings gtk
+cross-avr/avr-libc -selinux
+cross-avr/binutils -selinux
+cross-avr/gcc -boundschecking -d -fortran -gtk -gcj -libffi -mudflap -objc -objc++ -objc-gc -openmp -selinux -boundschecking -d -gtk -gcj -libffi -mudflap -objc -objc++ -objc-gc -openmp
+dev-db/mysql embedded
+dev-db/sqlite fts3 secure-delete
+dev-python/PyQt4 webkit sql assistant
+dev-util/qt-creator examples
+dev-vcs/subversion -dso
+gnome-base/gvfs -bluetooth gnome
+kde-base/gwenview kipi
+kde-base/kdelibs semantic-desktop
+kde-base/kopete wlm
+media-libs/opencv v4l
+media-sound/amarok ipod
+media-video/vlc -nsplugin
+net-analyzer/wireshark gtk
+net-dns/avahi mdnsresponder-compat
+net-libs/libsoup gnome
+net-print/cups -avahi
+net-wireless/wpa_supplicant -qt3 -qt4
+sys-auth/pambase consolekit
+sys-devel/gcc gcj -gtk
+sys-fs/udev extras
+sys-libs/glibc userlocales
+www-client/links -X
+x11-libs/qt-gui mng
+x11-libs/qt-sql mysql
+x11-themes/gtk-engines-qtcurve firefox3

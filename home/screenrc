@@ -1,0 +1,7 @@
+# Em linhas
+defscrollback 2000
+
+encoding UTF-8
+
+caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c"
+

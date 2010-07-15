@@ -1,0 +1,24 @@
+set bg=dark
+filetype on
+set modeline
+set tabstop=4
+set wildmode=list:longest
+set number
+set shiftwidth=4
+
+
+" {{{ Terminal fixes
+if &term ==? "xterm"
+	set t_Sb=^[4%dm
+	set t_Sf=^[3%dm
+	set ttymouse=xterm2
+endif
+
+au BufNewFile,BufRead *.pde setf cpp
+
+" mapeamento
+"map <S-Left> :tabprevious<CR>
+"map <S-Right> :tabnext<CR>
+"map <F1> :tabnew<CR>
+map <C-Tab> gt
+map <C-S-Tab> gT

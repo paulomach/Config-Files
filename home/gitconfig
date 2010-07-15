@@ -1,0 +1,30 @@
+[core]
+	editor=vim
+
+[user]
+	name="Paulo Machado"
+	email="machado@las.ic.unicamp.br"
+
+[web]
+	browser=firefox
+
+[receive]
+	fsckObjects = false
+
+[color]
+	ui = auto
+
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	up = pull
+	ls = ls-files
+	log = log --all
+[diff]
+	tool = kompare
+[merge]
+	tool = kompare
+[gui]
+	historybrowser = gitview
