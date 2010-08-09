@@ -18,21 +18,16 @@ PS1='\[\033[01;32m\]\u \[\033[01;34m\]@\[\033[01;34m\]\h\[\033[01;36m\] \w \$\[\
 
 HISTFILESIZE='2000'
 
-[[ -f /etc/profile.d/bash-completion.sh ]] && source /etc/profile.d/bash-completion.sh 
+[[ -f /etc/bash_completion ]] && source /etc/bash_completion
 
 # Put your fun stuff here.
 #alias ssh='ssh -Y'
-alias webcam='LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so  mplayer tv://1'
-alias cam='LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so  camorama'
-alias sdiff='svn diff|view -'
 alias tree='tree -A'
 alias toff='synclient TouchpadOff=1'
 alias ton='synclient TouchpadOff=0'
-alias octave='octave -q'
-alias bandeco='links -dump http://www.prefeitura.unicamp.br/servicos.php?servID=119 | head -n 23 | tail -n 14| sed "s/.\{0,35\}[ ]*//" | grep -v ^$ | sed -e "s/\//./g"'
-alias vbox='modprobe vboxnetadp; sleep 5;modprobe vboxdrv;sleep 5;modprobe vboxnetflt;mount /media/vbox; VirtualBox'
 alias vi='vi -p'
 alias bi='vi'
+alias ls='ls --color=auto'
 # alias arduino='/home/paulo/tmp/arduino-0017/build/linux/work/arduino'
 
 PATH="/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
@@ -40,7 +35,5 @@ XSESSION="fluxbox"
 PYTHONSTARTUP=$HOME/.pythonrc
 export PYTHONSTARTUP
 
-alias build='make clean && make && okular report.pdf'
 
-export ECHANGELOG_USER="Paulo Machado <machado@las.ic.unicamp.br>"
-
+#ssh -Cl machado -L 2222:taubenus:22 allesodernix.zlw-ima.rwth-aachen.de
