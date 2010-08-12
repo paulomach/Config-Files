@@ -5,6 +5,7 @@ set tabstop=4
 set wildmode=list:longest
 set number
 set shiftwidth=4
+syntax on
 
 
 " {{{ Terminal fixes
