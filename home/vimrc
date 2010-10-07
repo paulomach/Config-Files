@@ -8,6 +8,13 @@ set shiftwidth=4
 syntax on
 
 
+" Lembra posicao do cursor
+autocmd BufReadPost *
+	\ if line("'\"") > 1 && line("'\"") <= line("$") |
+	\   exe "normal! g`\"" |
+	\ endif
+
+
 " {{{ Terminal fixes
 if &term ==? "xterm"
 	set t_Sb=^[4%dm
