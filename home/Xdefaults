@@ -1,0 +1,15 @@
+!
+! Xdefaults
+!
+xft.dpi::       96
+xft.antialias:: true
+xft.hinting::   true
+xft.rgba::      rgb
+
+urxvt*background:	black
+urxvt*foreground:	white
+urxvt*scrollBar:	False
+urxvt*font:			xft:Bitstream Vera Sans Mono-9
+urxvt*geometry:		160x48
+urxvt*transparent:	True
+urxvt*shading:		5
