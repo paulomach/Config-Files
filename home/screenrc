@@ -10,3 +10,7 @@ bindkey -k F1 next
 
 vbell off
 
+setenv FIGNORE .svn
+
+setterm xterm
+
