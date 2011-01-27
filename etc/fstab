@@ -1,0 +1,13 @@
+# 
+# /etc/fstab: static file system information
+#
+# <file system>        <dir>         <type>    <options>          <dump> <pass>
+devpts                 /dev/pts      devpts    defaults            0      0
+shm                    /dev/shm      tmpfs     nodev,nosuid        0      0
+UUID=0d326eec-ffcd-4af7-8d76-15e1b9a244f6 /home ext4 defaults 0 1
+UUID=14e3c27c-2054-4786-ac7f-a5994997ab79 swap swap defaults 0 0
+UUID=dc217621-a97b-483f-a0c3-d0155d19052a / ext4 defaults 0 1
+
+
+evolute:/home		/media/evolute	nfs		defaults,users,noauto,nolock	0	0
+

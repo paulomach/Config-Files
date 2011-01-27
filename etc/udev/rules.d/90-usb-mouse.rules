@@ -1,0 +1,6 @@
+# Auto toogle touchpad to mouse addition
+ACTION=="add", SUBSYSTEM=="input", ATTRS{name}=="MLK SPEEDLINK RF Snappy", ENV{DISPLAY}=":0.0", ENV{XAUTHORITY}="/home/paulo/.Xauthority", RUN+="/bin/su paulo -c '/usr/bin/synclient TouchpadOff=1'"
+ACTION=="remove", SUBSYSTEM=="input", ATTRS{name}=="MLK SPEEDLINK RF Snappy", ENV{DISPLAY}=":0.0", ENV{XAUTHORITY}="/home/paulo/.Xauthority", RUN+="/bin/su paulo -c '/usr/bin/synclient TouchpadOff=0'"
+
+# vim: filetype=udevrules
+
