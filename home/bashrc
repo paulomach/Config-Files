@@ -14,12 +14,7 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-
-if [ $UID == 0 ]; then
-	PS1='\[\033[01;31m\]\u \[\033[01;34m\]@\[\033[01;34m\]\h\[\033[01;36m\] \w \$\[\033[00m\] '
-else
-	PS1='\[\033[01;33m\]\u \[\033[01;34m\]@\[\033[01;34m\]\h\[\033[01;36m\] \w \$\[\033[00m\] '
-fi
+PS1='\[\033[01;33m\]\u \[\033[01;34m\]@\[\033[01;34m\]\h\[\033[01;36m\] \w \$\[\033[00m\] '
 
 HISTFILESIZE='2000'
 
@@ -28,17 +23,19 @@ HISTFILESIZE='2000'
 # Put your fun stuff here.
 #alias ssh='ssh -Y'
 alias tree='tree -A'
-alias toff='synclient TouchpadOff=1'
-alias ton='synclient TouchpadOff=0'
+#alias toff='synclient TouchpadOff=1'
+#alias ton='synclient TouchpadOff=0'
 alias vi='vi -p'
 alias bi='vi'
 alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 # alias arduino='/home/paulo/tmp/arduino-0017/build/linux/work/arduino'
 
-PATH="/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
-XSESSION="fluxbox"
-PYTHONSTARTUP=$HOME/.pythonrc
-export PYTHONSTARTUP
+PATH="~/bin:/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
+#XSESSION="fluxbox"
+#PYTHONSTARTUP=$HOME/.pythonrc
+#export PYTHONSTARTUP
 
 
 #ssh -Cl machado -L 2222:taubenus:22 allesodernix.zlw-ima.rwth-aachen.de
+#ssh machado@visacardus -L 8000:chronos:80 
