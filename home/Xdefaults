@@ -9,7 +9,8 @@ xft.rgba::      rgb
 urxvt*background:	black
 urxvt*foreground:	white
 urxvt*scrollBar:	False
-urxvt*font:			xft:Bitstream Vera Sans Mono-9
-urxvt*geometry:		160x48
-urxvt*transparent:	True
-urxvt*shading:		5
+urxvt*font:			xft:DejaVu Sans Mono-9
+urxvt*geometry:		140x40+0+0
+urxvt*cursorUnderline:	True
+urxvt*termName:		xterm-xfree86
+
