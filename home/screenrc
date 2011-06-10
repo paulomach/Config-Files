@@ -12,5 +12,5 @@ vbell off
 
 setenv FIGNORE .svn
 
-setterm xterm
+term xterm
 
