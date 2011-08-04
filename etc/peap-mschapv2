@@ -1,0 +1,16 @@
+name = PEAP with MSCHAPv2
+author = Paulo
+version = 1
+require identity *Identity password *Password
+-----
+ctrl_interface=/var/run/wpa_supplicant
+network={
+	ssid="$_ESSID"
+	scan_ssid=$_SCAN
+	key_mgmt=IEEE8021X
+	eap=PEAP
+	phase2="auth=MSCHAPV2"
+	identity="$_IDENTITY"
+	password="$_PASSWORD"
+}
+
