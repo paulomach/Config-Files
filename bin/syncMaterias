@@ -1,0 +1,15 @@
+#!/bin/sh
+
+EXCLUDE="/home/paulo/Materias/exclude"
+SOURCE="/home/paulo/Materias/2011-2s/*"
+DEST="/home/machado/nobackup/Materias/2011-2s/"
+HOST="pulsar"
+ARGS=" -rv --size-only --exclude-from=${EXCLUDE} $1"
+
+
+###### Cmd #########
+rsync  ${ARGS}  ${SOURCE}  ${HOST}:${DEST} 
+[ $? == 0 ] && echo -e "\nAll done"
+
+exit 0
+

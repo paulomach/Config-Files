@@ -1,0 +1,8 @@
+#!/bin/bash
+
+dd if=/dev/zero of=$1 bs=1M count=$2
+
+mkswap $1
+
+swapon -p 30000 $1
+

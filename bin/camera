@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# copy files
+#
+
+case ${1} in 
+
+	-h|--help) echo "Usage: [-m for movies]" ;;
+
+	-m) find /media/canon -name *.AVI -exec rsync -v {} /home/paulo/imagens/Alemanha \; ;;
+
+	*) find /media/canon -name *.JPG -exec rsync -v {} /home/paulo/imagens/Alemanha \; ;;
+
+esac
+

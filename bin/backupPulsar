@@ -5,7 +5,7 @@
 ##########################
 [ "$1" = "-h" ] && echo -e "Usage:\nbackupPulsar.sh <extra rsync args>" && exit 1
 
-echo -e "\nBacking up German pictures..."
+echo -e "\nPictures backup."
 ###### Config ########
 SOURCE="/home/paulo/imagens/Alemanha"
 DEST="/l/home/machado/nobackup"
@@ -16,4 +16,6 @@ ARGS=" -rv --size-only $1"
 ###### Cmd #########
 rsync  ${ARGS}  ${SOURCE}  ${HOST}:${DEST} 
 [ $? == 0 ] && echo -e "\nAll done"
+
+exit 0
 
