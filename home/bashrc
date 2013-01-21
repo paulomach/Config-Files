@@ -22,19 +22,28 @@ HISTFILESIZE='2000'
 
 # Put your fun stuff here.
 #alias ssh='ssh -Y'
-alias tree='tree -A'
-#alias toff='synclient TouchpadOff=1'
-#alias ton='synclient TouchpadOff=0'
+#alias tree='tree -A'
+alias toff='synclient TouchpadOff=1'
+alias ton='synclient TouchpadOff=0'
 alias vi='vi -p'
 alias bi='vi'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-# alias arduino='/home/paulo/tmp/arduino-0017/build/linux/work/arduino'
+alias diff='diff -urN'
+alias ll='ls -l'
+alias la='ls -a'
+alias dos2unix='dos2unix -A'
+alias lh='ls -d .??*'
 
-PATH="~/bin:/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
+
+PATH="~/bin:/usr/local/sbin:/usr/sbin:/sbin:/media/arquivos/bin:${PATH}"
 #XSESSION="fluxbox"
-#PYTHONSTARTUP=$HOME/.pythonrc
-#export PYTHONSTARTUP
+PYTHONSTARTUP=$HOME/.pythonrc
+export PYTHONSTARTUP
+
+# turn off bell
+[[ -n ${DISPLAY} ]] && xset b off
+
 
 
 #ssh -Cl machado -L 2222:taubenus:22 allesodernix.zlw-ima.rwth-aachen.de
