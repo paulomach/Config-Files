@@ -22,7 +22,7 @@ HISTFILESIZE='2000'
 
 # Put your fun stuff here.
 #alias ssh='ssh -Y'
-#alias tree='tree -A'
+alias tree='tree -A'
 alias toff='synclient TouchpadOff=1'
 alias ton='synclient TouchpadOff=0'
 alias vi='vi -p'
@@ -36,7 +36,7 @@ alias dos2unix='dos2unix -A'
 alias lh='ls -d .??*'
 
 
-PATH="~/bin:/usr/local/sbin:/usr/sbin:/sbin:/media/arquivos/bin:${PATH}"
+PATH="~/bin:/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
 #XSESSION="fluxbox"
 PYTHONSTARTUP=$HOME/.pythonrc
 export PYTHONSTARTUP
