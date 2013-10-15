@@ -37,14 +37,12 @@ alias lh='ls -d .??*'
 
 
 PATH="~/bin:/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
-#XSESSION="fluxbox"
 PYTHONSTARTUP=$HOME/.pythonrc
 export PYTHONSTARTUP
 
 # turn off bell
 [[ -n ${DISPLAY} ]] && xset b off
 
+export EDITOR="vim"
+export FIGNORE="svn"
 
-
-#ssh -Cl machado -L 2222:taubenus:22 allesodernix.zlw-ima.rwth-aachen.de
-#ssh machado@visacardus -L 8000:chronos:80 
