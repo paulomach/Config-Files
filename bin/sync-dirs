@@ -1,8 +1,0 @@
-#!/bin/bash
-
-echo "local --> remote" 
-rsync * $1:/$PWD/ -rv --size-only $2
-
-echo "remote --> local" 
-rsync $1:/$PWD/* . -rv --size-only $2
-
