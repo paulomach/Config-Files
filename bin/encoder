@@ -1,3 +1,11 @@
 #!/bin/bash
 
-ffmpeg -i $1 -b:v 567k -s 320x240 -vcodec mpeg4 -ab 220k -ar 44100 -ac 2 -acodec aac -strict -2  ${2}.mp4
+if [[ -z $1 || $1 = "-h" ]]; then
+	echo "Encode some formats to Sony Walkman readable mp4 format."
+	echo "Usage: $0 <file_name>"
+	exit
+fi
+
+ffmpeg -i ${1} -b:v 567k -s 320x240 -vcodec mpeg4 -ab 220k \
+	-ar 44100 -ac 2 -acodec aac -strict -2 \
+	$(echo $1|cut -d. -f1).mp4
