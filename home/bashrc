@@ -22,27 +22,33 @@ HISTFILESIZE='2000'
 
 # Put your fun stuff here.
 #alias ssh='ssh -Y'
-alias tree='tree -A'
+#alias tree='tree -A'
 alias toff='synclient TouchpadOff=1'
 alias ton='synclient TouchpadOff=0'
 alias vi='vi -p'
 alias bi='vi'
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
+alias ls='ls --color=auto --group-directories-first'
+alias grep='grep --color=auto -E'
 alias diff='diff -urN'
 alias ll='ls -l'
 alias la='ls -a'
-alias dos2unix='dos2unix -A'
 alias lh='ls -d .??*'
+#alias dmesg='dmesg -H'
+alias astyle='astyle -Y'
+alias bc='bc -q'
+alias git='LANG=en_US.UTF-8 git'
 
-
-PATH="~/bin:/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
+PATH="~/bin:/usr/local/sbin:/usr/sbin:/sbin:/media/arquivos/bin:/usr/lib/oracle/product/11.2.0/xe/bin:${PATH}"
+#XSESSION="fluxbox"
 PYTHONSTARTUP=$HOME/.pythonrc
 export PYTHONSTARTUP
 
 # turn off bell
-[[ -n ${DISPLAY} ]] && xset b off
+[[ -n ${DISPLAY} && ${DISPLAY} != "localhost:10.0" ]] && xset b off
 
 export EDITOR="vim"
 export FIGNORE="svn"
+export WORKSPACE="/mnt/files"
 
+#ssh -Cl machado -L 2222:taubenus:22 allesodernix.zlw-ima.rwth-aachen.de
+#ssh machado@visacardus -L 8000:chronos:80 

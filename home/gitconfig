@@ -1,20 +1,16 @@
 [core]
-	editor=vim
-
+	editor = vim
 [user]
-	name="Paulo Machado"
-	email="paulo.machado@tool.com.br"
-
+	name = "Paulo Machado"
+	email = "paulo.machado@tool.com.br"
 [web]
-	browser=firefox
-
+	browser = firefox
 [receive]
 	fsckObjects = false
-
 [color]
 	ui = auto
-
 [alias]
+	gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
 	st = status
 	ci = commit
 	co = checkout
@@ -28,3 +24,12 @@
 	tool = kompare
 [gui]
 	historybrowser = gitview
+	fontui = -family \"DejaVu Sans\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"DejaVu Sans Mono\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+	recentrepo = /mnt/files/repositories/lunender
+[push]
+	default = simple
+[guitool "git cola"]
+	cmd = git cola
+[diff "odt"]
+	textconv = /home/paulo/bin/odf2txt
