@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtWidgets
-from datetime import date
+from datetime import date, datetime
 from collections import OrderedDict
 import requests
 
@@ -30,6 +30,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.widget)
         self.plainTextEdit.setObjectName("plainTextEdit")
+        self.plainTextEdit.setReadOnly(1)
         self.verticalLayout.addWidget(self.plainTextEdit)
         self.pushButton = QtWidgets.QPushButton(self.widget)
         self.pushButton.setObjectName("pushButton")
@@ -46,13 +47,12 @@ class Ui_MainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Debt Calc"))
         self.pushButton.setText(_translate("MainWindow", "Retrieve Data"))
     
     def dataRetrieve(self):
@@ -66,7 +66,7 @@ class Ui_MainWindow(object):
         
         self.plainTextEdit.clear()
         self.plainTextEdit.appendPlainText(
-            "Data;Retirada;IPCA acumulado;Corrigido;Saldo")
+            "Data;Retirada;Indice acumulado;Valor Corrigido;Saldo Atualizado")
         
         vtotal=0
         for d, v in drawee.items():
@@ -75,10 +75,20 @@ class Ui_MainWindow(object):
                 if ipca[i].get('D1C') == d:
                     break
             for j in range(i, len(ipca)):
-                index = round(index*(1+ float(ipca[j].get('V'))/100), 4)
+                index = index*(1+ float(ipca[j].get('V'))/100)
             vtotal = round(vtotal+v*index, 2)
-            line = d + ";" + str(v) + ";" + str(index) + ";" + str(round(v*index, 2)) + ";" + str(vtotal)
-            self.plainTextEdit.appendPlainText(line)
+            line = datetime.strptime(d,"%Y%m").strftime("%b/%Y") + ";" + str(v) + ";" +\
+            str(index-1) + ";" + str(round(v*index, 2)) + ";" + str(vtotal)
+            self.plainTextEdit.appendPlainText(line.replace(".", ","))
+        
+        self.saveContent()
+    
+    def saveContent(self):
+        filename = "teste.csv"
+        fd = open(filename, 'w')
+        fd.write(self.plainTextEdit.plainText)
+        fd.flush()
+        fd.close()
 
 if __name__ == "__main__":
     import sys
