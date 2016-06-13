@@ -1,5 +1,7 @@
 #!/usr/bin/bash/env python
 # -*- coding:utf-8 -*-
+# dummy comment
+
 
 import readline, rlcompleter, os, atexit
 readline.parse_and_bind('tab:complete')
