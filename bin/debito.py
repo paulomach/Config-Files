@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtWidgets
-from datetime import date, datetime
+from datetime import datetime
 from collections import OrderedDict
 import requests
 
@@ -86,7 +86,7 @@ class Ui_MainWindow(object):
     def saveContent(self):
         filename = "teste.csv"
         fd = open(filename, 'w')
-        fd.write(self.plainTextEdit.plainText)
+        fd.write(self.plainTextEdit.toPlainText())
         fd.flush()
         fd.close()
 
