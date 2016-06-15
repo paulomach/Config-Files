@@ -9,13 +9,14 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from debtutils import DebtUtils
+from datetime import datetime
 
 class Ui_Dialog(object):
     ipca=[]
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.setWindowTitle("Debt calculation")
-        Dialog.resize(550, 300)
+        Dialog.setFixedSize(550, 300)
         self.plainTextEdit = QtWidgets.QPlainTextEdit(Dialog)
         self.plainTextEdit.setGeometry(QtCore.QRect(10, 10, 530, 221))
         font = QtGui.QFont()
@@ -44,18 +45,31 @@ class Ui_Dialog(object):
         self.buttonGet.setText(_translate("Dialog", "Get Data"))
         self.buttonOpen.setText(_translate("Dialog", "Open sheet"))
         self.buttonIpca.setText(_translate("Dialog",  "IPCA print"))
+        self.buttonIpca.setEnabled(False);
+        self.buttonOpen.setEnabled(False);
 
     def updateData(self):
+        if len(self.ipca) > 0:
+            info = self.plainTextEdit.toPlainText()
+        else:
+            info,  self.ipca = DebtUtils.dataRetrieve()
         self.plainTextEdit.clear()
-        info,  self.ipca = DebtUtils.dataRetrieve()
         self.plainTextEdit.appendPlainText(info.replace('.', ','))
+        if info == "":
+            self.buttonIpca.setEnabled(False);
+            self.buttonOpen.setEnabled(False);
+        else:
+            self.buttonIpca.setEnabled(True);
+            self.buttonOpen.setEnabled(True);
 
     def saveData(self,  inputData):
         DebtUtils.saveContent(inputData)
     
     def printIpca(self):
+        self.plainTextEdit.appendPlainText("Mês;IPCA")
         for i in self.ipca:
-            self.plainTextEdit.appendPlainText(i.get('D1C') + ";" + str(i.get('V')).replace('.',','))
+            info =  datetime.strptime(i.get('D1C'),"%Y%m").strftime("%b/%Y")  + ";" + str(round(float(i.get('V'))/100, 4)).replace('.',',')
+            self.plainTextEdit.appendPlainText(info)
 
 if __name__ == "__main__":
     import sys
