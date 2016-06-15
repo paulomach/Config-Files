@@ -27,7 +27,7 @@ class DebtUtils:
                 vtotal = round(vtotal+v*index, 2)
                 output = output + datetime.strptime(d,"%Y%m").strftime("%b/%Y") + ";" + str(v) + ";" +\
                 str(index-1) + ";" + str(round(v*index, 2)) + ";" + str(vtotal) + "\n"
-        return output
+        return output, ipca
     def saveContent(input):    
         filename = "teste.csv"
         fd = open(filename, 'w')
