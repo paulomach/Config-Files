@@ -33,4 +33,4 @@ class DebtUtils:
         fd = open(filename, 'w')
         fd.write(input)
         fd.close()
-        subprocess.call(['/usr/sbin/localc', filename])
+        subprocess.Popen(['/usr/sbin/localc', filename])
