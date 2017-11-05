@@ -5,11 +5,12 @@ import subprocess
 
 class DebtUtils:
     def dataRetrieve():
-        url = "http://www.sidra.ibge.gov.br/api/values/t/1737/p/201509-201704/v/63/n1/1/h/n/f/c"
+        url = "http://api.sidra.ibge.gov.br/values/t/1737/p/201509-201710/v/63/n1/1/h/n/f/c"
         ipca = requests.get(url).json()
         drawee = {'201509':70000, '201512':10000, '201604':31500, '201605':31500,  '201606': 31500, 
         '201607':31500,  '201608':36750,  '201609':36750,  '201610':36750,  '201611':36750, 
-        '201612':36750,  '201701':36750,  '201702':36750,  '201703':36750}
+        '201612':36750,  '201701':36750,  '201702':36750,  '201703':36750, '201704':0, '201705':0,
+                  '201706': 0,'201707':0,'201708':0,'201709':0,'201710':0,'201711':0}
         drawee = OrderedDict(sorted(drawee.items()))
         output = "Data;Retirada;Índice acumulado;Valor Corrigido;Saldo Atualizado\n"
         
