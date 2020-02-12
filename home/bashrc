@@ -14,41 +14,55 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-PS1='\[\033[01;33m\]\u \[\033[01;34m\]@\[\033[01;34m\]\h\[\033[01;36m\] \w \$\[\033[00m\] '
+#PS1='\[\033[01;33m\]\u \[\033[01;37m\]@\[\033[01;37m\]\h\[\033[01;36m\] \w \$\[\033[00m\] '
+PS1='\[\e[01;33m\]\u \[\e[01;37m\]@\[\e[01;37m\]\h\[\e[01;36m\] \w $\[\e[00m\] '
+#PS1='\u@\h \w $ '
 
-HISTFILESIZE='2000'
+HISTFILESIZE='5000'
+HISTCONTROL='ignoreboth'
 
 [[ -f /etc/bash_completion ]] && source /etc/bash_completion
 
 # Put your fun stuff here.
 #alias ssh='ssh -Y'
-#alias tree='tree -A'
+alias tree='tree -A'
 alias toff='synclient TouchpadOff=1'
 alias ton='synclient TouchpadOff=0'
 alias vi='vi -p'
 alias bi='vi'
 alias ls='ls --color=auto --group-directories-first'
-alias grep='grep --color=auto -E'
+alias grep='grep --color=auto -i'
 alias diff='diff -urN'
+alias serial-out='screen /dev/ttyUSB0 9600'
 alias ll='ls -l'
 alias la='ls -a'
+alias dos2unix='dos2unix -A'
 alias lh='ls -d .??*'
-#alias dmesg='dmesg -H'
-alias astyle='astyle -Y'
-alias bc='bc -q'
+#alias feh='display'
 alias git='LANG=en_US.UTF-8 git'
+alias pkill='pkill -ec'
+alias octave='clear; octave --no-gui --quiet'
+alias gource="gource --user-image-dir $HOME/.avatar"
+alias ps='ps ux'
+export VISUAL="vim"
+alias cat='bat'
+alias bonzo='echo "Bonzo on $(based-connect -b 28:11:A5:35:B8:18)%"'
 
-PATH="~/bin:/usr/local/sbin:/usr/sbin:/sbin:/media/arquivos/bin:/usr/lib/oracle/product/11.2.0/xe/bin:${PATH}"
+
+alias psql_local='psql postgres://postgres@localhost'
+alias pgcli_local='pgcli postgres://postgres@localhost'
+
+PATH="/home/paulo/bin:/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
 #XSESSION="fluxbox"
 PYTHONSTARTUP=$HOME/.pythonrc
-export PYTHONSTARTUP
+#export PYTHONSTARTUP
+WINEARCH=win32
 
-# turn off bell
-[[ -n ${DISPLAY} && ${DISPLAY} != "localhost:10.0" ]] && xset b off
+OPENSCADPATH="$HOME/.local/share/OpenSCAD/libraries"
 
-export EDITOR="vim"
-export FIGNORE="svn"
-export WORKSPACE="/mnt/files"
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+source /usr/share/fzf/key-bindings.bash
 
-#ssh -Cl machado -L 2222:taubenus:22 allesodernix.zlw-ima.rwth-aachen.de
-#ssh machado@visacardus -L 8000:chronos:80 
+#eval $(docker-machine env suse-docker)
+

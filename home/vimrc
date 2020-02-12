@@ -1,12 +1,14 @@
 set bg=dark
 filetype on
 set modeline
-set tabstop=4
+set tabstop=4 shiftwidth=2 expandtab
 set wildmode=list:longest
 set number
-set shiftwidth=4
+set laststatus=2
+let g:airline_theme='solarized'
 syntax on
-
+" set autoindent
+set hlsearch
 
 " Lembra posicao do cursor
 autocmd BufReadPost *
@@ -23,10 +25,14 @@ if &term ==? "xterm"
 endif
 
 au BufNewFile,BufRead *.pde setf cpp
+au BufNewFile,BufRead *.prc setf sql
+au BufNewFile,BufRead *.scl setf pascal
+
 
 " mapeamento
 "map <S-Left> :tabprevious<CR>
 "map <S-Right> :tabnext<CR>
-"map <F1> :tabnew<CR>
+map <F1> :%!astyle -A3<CR>
 map <C-Tab> gt
 map <C-S-Tab> gT
+
