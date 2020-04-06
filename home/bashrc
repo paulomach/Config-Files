@@ -14,9 +14,11 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-#PS1='\[\033[01;33m\]\u \[\033[01;37m\]@\[\033[01;37m\]\h\[\033[01;36m\] \w \$\[\033[00m\] '
-PS1='\[\e[01;33m\]\u \[\e[01;37m\]@\[\e[01;37m\]\h\[\e[01;36m\] \w $\[\e[00m\] '
-#PS1='\u@\h \w $ '
+[[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
+
+#PS1="\[\e[01;33m\]\u \[\e[01;37m\]@\[\e[01;37m\]\h\[\e[01;36m\] \w $(__git_ps1)$\[\e[00m\] "
+
+PS1='\[\033[01;32m\]\[\033[0m\033[0;32m\]\[\033[01;33m\]\u\[\e[01;37m\]@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;35m\] $(__git_ps1 [%s])$ \[\e[00m\]'
 
 HISTFILESIZE='5000'
 HISTCONTROL='ignoreboth'
@@ -24,45 +26,54 @@ HISTCONTROL='ignoreboth'
 [[ -f /etc/bash_completion ]] && source /etc/bash_completion
 
 # Put your fun stuff here.
-#alias ssh='ssh -Y'
-alias tree='tree -A'
+alias bi='vi'
+alias bonzo='echo "Bonzo on $(based-connect -b 28:11:A5:35:B8:18)%"'
+alias cat='bat'
+alias diff='diff -urN'
+alias dos2unix='dos2unix -A'
+alias git='LANG=en_US.UTF-8 git'
+alias gource="gource --user-image-dir $HOME/.avatar"
+alias grep='grep --color=auto -i'
+alias iotop='sudo iotop -o -P'
+alias la='ls -a'
+alias lh='ls -d .??*'
+alias ll='ls -l'
+alias ls='ls --color=auto --group-directories-first'
+alias octave='clear; octave --no-gui --quiet'
+alias pgcli_local='pgcli postgres://services@localhost:54320'
+alias pkill='pkill -ec'
+alias ps='ps ux'
+alias psql_local='psql postgres://postgres@localhost'
+alias serial-out='screen /dev/ttyUSB0 9600'
 alias toff='synclient TouchpadOff=1'
 alias ton='synclient TouchpadOff=0'
+alias tree='tree -A'
 alias vi='vi -p'
-alias bi='vi'
-alias ls='ls --color=auto --group-directories-first'
-alias grep='grep --color=auto -i'
-alias diff='diff -urN'
-alias serial-out='screen /dev/ttyUSB0 9600'
-alias ll='ls -l'
-alias la='ls -a'
-alias dos2unix='dos2unix -A'
-alias lh='ls -d .??*'
-#alias feh='display'
-alias git='LANG=en_US.UTF-8 git'
-alias pkill='pkill -ec'
-alias octave='clear; octave --no-gui --quiet'
-alias gource="gource --user-image-dir $HOME/.avatar"
-alias ps='ps ux'
-export VISUAL="vim"
-alias cat='bat'
-alias bonzo='echo "Bonzo on $(based-connect -b 28:11:A5:35:B8:18)%"'
-
-
-alias psql_local='psql postgres://postgres@localhost'
-alias pgcli_local='pgcli postgres://postgres@localhost'
 
 PATH="/home/paulo/bin:/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
-#XSESSION="fluxbox"
-PYTHONSTARTUP=$HOME/.pythonrc
-#export PYTHONSTARTUP
-WINEARCH=win32
 
 OPENSCADPATH="$HOME/.local/share/OpenSCAD/libraries"
+
+export VISUAL="vim"
 
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 source /usr/share/fzf/key-bindings.bash
 
 #eval $(docker-machine env suse-docker)
+
+_dotnet_bash_complete()
+{
+  local word=${COMP_WORDS[COMP_CWORD]}
+
+  local completions
+  completions="$(dotnet complete --position "${COMP_POINT}" "${COMP_LINE}" 2>/dev/null)"
+  if [ $? -ne 0 ]; then
+    completions=""
+  fi
+
+  COMPREPLY=( $(compgen -W "$completions" -- "$word") )
+}
+
+complete -f -F _dotnet_bash_complete dotnet
 
