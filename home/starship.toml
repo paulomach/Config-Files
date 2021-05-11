@@ -1,0 +1,97 @@
+add_newline = false
+
+
+[gcloud]
+disabled = true
+
+[python]
+symbol = " "
+
+[directory]
+read_only = " "
+
+[docker_context]
+symbol = " "
+
+[git_status]
+untracked = ""
+
+[aws]
+disabled = true
+
+[conda]
+disabled = true
+
+[cmake]
+disabled = true
+
+[crystal]
+disabled = true
+
+[dart]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[erlang]
+disabled = true
+
+[golang]
+disabled = true
+
+[helm]
+disabled = true
+
+[java]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[julia]
+disabled = true
+
+[lua]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+[vagrant]
+disabled = true
+
+[zig]
+disabled = true
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[package]
+disabled = true
+
+[purescript]
+disabled = true
+
+[red]
+disabled = true
+
+[ruby]
+disabled = true
+
+[scala]
+disabled = true
+
+

@@ -14,14 +14,16 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-[[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
+# [[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
 
-function _ps_line
-{
-    [[ $COLUMNS -lt 100 ]] && echo -e "\n-> "
-}
+# function _ps_line
+# {
+#    [[ $COLUMNS -lt 100 ]] && echo -e "\n-> "
+# }
 
-PS1='\[\033[01;32m\]\[\033[0m\033[0;32m\]\[\033[01;33m\]\u\[\e[01;37m\]@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[01;35m\] $(__git_ps1 [%s])$(_ps_line)$ \[\e[00m\]'
+# PS1='\[\033[01;32m\]\[\033[0m\033[0;32m\]\[\033[01;33m\]\u\[\e[01;37m\]@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[01;35m\] $(__git_ps1 [%s])$(_ps_line)$ \[\e[00m\]'
+
+eval "$(starship init bash)"
 
 HISTFILESIZE='5000'
 HISTCONTROL='ignoreboth'
@@ -44,19 +46,22 @@ alias lh='ls -d .??*'
 alias ll='ls -l'
 alias ls='ls --color=auto --group-directories-first'
 alias octave='clear; octave --no-gui --quiet'
-alias pgcli_local='pgcli postgres://services@qpro-01:54320'
 alias pkill='pkill -ec'
 alias ps='ps ux'
-alias psql_local='psql postgres://postgres@localhost'
+alias pgcli-q1='pgcli postgres://postgres:docker@qpro-q1/misuse_pg'
+alias pgcli-har='pgcli postgres://admin:admin@poweredge:5433/harmonia'
 alias serial-out='screen /dev/ttyUSB0 9600'
 alias ssh-cloud-ar='gcloud beta compute ssh --zone "us-central1-a" "vm-qpro-ar-experience" --project "qpro-ar-experience"'
 alias ssh-cloud-shell='gcloud cloud-shell ssh'
 alias ssh-cloud-showroom='gcloud beta compute ssh --zone "us-east4-c" "vm-qpro-showroom-rfid-swarm00" --project "qpro-showroom-rfid"'
+alias ssh-cloud-ts='gcloud beta compute ssh --zone "us-central1-a" "vm-troubleshoot-manager" --project "qpro-troubleshoot"'
 alias toff='synclient TouchpadOff=1'
 alias ton='synclient TouchpadOff=0'
 alias tree='tree -A'
 alias vi='vi -p'
-
+alias dmesg='journalctl -k -f'
+alias lsd='ls -d */'
+alias ipdata='curl ipinfo.io'
 
 
 PATH="/home/paulo/bin:/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
@@ -86,7 +91,7 @@ _dotnet_bash_complete()
 
 complete -f -F _dotnet_bash_complete dotnet
 
-export DOCKER_HOST="tcp://qpro-01:2375"
+export DOCKER_HOST="tcp://qpro-q1:2375"
 
 
 
